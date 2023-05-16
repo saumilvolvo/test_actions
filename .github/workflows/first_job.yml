@@ -30,8 +30,8 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: dist-files
-          path: ./dist
-          if-no-files-found: error
+          path: dist
+          if-no-files-found: warn
   deploy:
     needs: build
     runs-on: ubuntu-latest
