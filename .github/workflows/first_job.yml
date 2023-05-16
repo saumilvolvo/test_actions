@@ -19,6 +19,20 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output information
+        run: |        
+          echo "this is test"
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist-files
+          path: |
+            dist
+            package.json
   deploy:
     needs: test
     runs-on: ubuntu-latest
